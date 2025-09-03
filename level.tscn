@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3gv1oi6irjag"]
+[gd_scene load_steps=10 format=3 uid="uid://d3gv1oi6irjag"]
 
 [ext_resource type="PackedScene" uid="uid://bg7pj8re6kfju" path="res://Player/player.tscn" id="1_u52ul"]
 [ext_resource type="Texture2D" uid="uid://glascd2vhykg" path="res://oak_woods_v1.0/background/background_layer_1.png" id="2_f2txt"]
@@ -434,6 +434,20 @@ texture = ExtResource("5_km5ld")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_i2t4f")
 
+[sub_resource type="GDScript" id="GDScript_1ainy"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	text = \"HP: \" + str($\"../../Player/Player\".health)
+"
+
 [node name="Level" type="Node2D"]
 
 [node name="BG" type="ParallaxBackground" parent="."]
@@ -453,7 +467,7 @@ motion_scale = Vector2(0.5, 1)
 motion_mirroring = Vector2(1300, 0)
 
 [node name="BackgroundLayer2" type="Sprite2D" parent="BG/ParallaxLayer2"]
-position = Vector2(656, 387.5)
+position = Vector2(648, 391)
 scale = Vector2(4.1375, 4.33889)
 texture = ExtResource("3_1ainy")
 
@@ -473,9 +487,29 @@ layer_0/tile_data = PackedInt32Array(262143, 0, 5, 327679, 0, 0, 393215, 0, 1, 4
 [node name="Player" type="Node2D" parent="."]
 
 [node name="Player" parent="Player" instance=ExtResource("1_u52ul")]
-position = Vector2(258, 204)
+position = Vector2(240, 505)
 
 [node name="Mobs" type="Node2D" parent="."]
 
 [node name="Sceleton" parent="Mobs" instance=ExtResource("6_1ainy")]
 position = Vector2(484, 527)
+
+[node name="Sceleton2" parent="Mobs" instance=ExtResource("6_1ainy")]
+position = Vector2(633, 528)
+
+[node name="Sceleton3" parent="Mobs" instance=ExtResource("6_1ainy")]
+position = Vector2(743, 531)
+
+[node name="Sceleton4" parent="Mobs" instance=ExtResource("6_1ainy")]
+position = Vector2(909, 532)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 34.0
+offset_top = 26.0
+offset_right = 125.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 30
+text = "HP"
+script = SubResource("GDScript_1ainy")

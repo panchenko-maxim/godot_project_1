@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://6pojpg4wvbqc"]
+[gd_scene load_steps=25 format=3 uid="uid://6pojpg4wvbqc"]
 
 [ext_resource type="Script" uid="uid://i44m8wa0tvu8" path="res://Mobs/sceleton.gd" id="1_88rka"]
 [ext_resource type="Texture2D" uid="uid://co6mm8exgjivs" path="res://oak_woods_v1.0/Skeleton/Take Hit.png" id="1_e2m51"]
@@ -89,7 +89,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Death",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -132,6 +132,9 @@ radius = 259.94
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88rka"]
 size = Vector2(8, 3)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7baca"]
+size = Vector2(18, 3)
+
 [node name="Sceleton" type="CharacterBody2D"]
 script = ExtResource("1_88rka")
 
@@ -157,6 +160,12 @@ shape = SubResource("CircleShape2D_88rka")
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_88rka")
 
+[node name="Death2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death2"]
+shape = SubResource("RectangleShape2D_7baca")
+
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]
 [connection signal="body_exited" from="Detector" to="." method="_on_detector_body_exited"]
 [connection signal="body_entered" from="Death" to="." method="_on_death_body_entered"]
+[connection signal="body_entered" from="Death2" to="." method="_on_death_2_body_entered"]

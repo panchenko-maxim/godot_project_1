@@ -45,8 +45,15 @@ func _on_detector_body_exited(body: Node2D) -> void:
 
 func _on_death_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
+		body.velocity.y -= 300
 		death()
-		
+
+func _on_death_2_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		if alive == true:
+			body.health -= 40
+		death()
+
 func death ():
 	alive = false
 	anim.play("Death")
