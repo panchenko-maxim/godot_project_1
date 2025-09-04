@@ -8,6 +8,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var anim = $AnimatedSprite2D
 var health = 100
+var gold = 0
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

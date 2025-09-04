@@ -145,7 +145,7 @@ shape = SubResource("CapsuleShape2D_lfget")
 position = Vector2(-4, 4.76837e-07)
 scale = Vector2(0.693333, 0.746667)
 sprite_frames = SubResource("SpriteFrames_7x3p0")
-animation = &"Death"
+animation = &"Idle"
 autoplay = "Idle"
 
 [node name="Detector" type="Area2D" parent="."]
