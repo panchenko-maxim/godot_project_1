@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bv1b8yktm76tl" path="res://oak_woods_v1.0/background/background_layer_3.png" id="4_n6hdu"]
 [ext_resource type="Texture2D" uid="uid://ca5trbva0v5mi" path="res://oak_woods_v1.0/oak_woods_tileset.png" id="5_km5ld"]
 [ext_resource type="PackedScene" uid="uid://6pojpg4wvbqc" path="res://Mobs/sceleton.tscn" id="6_1ainy"]
-[ext_resource type="PackedScene" uid="uid://ytyjl1krm78s" path="res://Collectibles/gold.tscn" id="7_n6hdu"]
+[ext_resource type="Script" uid="uid://cwgdrt33jj640" path="res://collectibles.gd" id="7_n6hdu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i2t4f"]
 texture = ExtResource("5_km5ld")
@@ -539,6 +539,10 @@ text = "Gold"
 script = SubResource("GDScript_n6hdu")
 
 [node name="Collectibles" type="Node2D" parent="."]
+script = ExtResource("7_n6hdu")
 
-[node name="Gold" parent="." instance=ExtResource("7_n6hdu")]
-position = Vector2(342, 607)
+[node name="Timer" type="Timer" parent="Collectibles"]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Collectibles/Timer" to="Collectibles" method="_on_timer_timeout"]
