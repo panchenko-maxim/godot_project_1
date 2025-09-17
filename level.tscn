@@ -444,8 +444,8 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	text = \"HP: \" + str($\"../../Player/Player\".health)
+#func _process(_delta: float) -> void:
+	#text = \"HP: \" + str($\"../../Player/Player\".health)
 "
 
 [sub_resource type="GDScript" id="GDScript_n6hdu"]

@@ -332,7 +332,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_m0h3t")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack",
 "speed": 10.0
 }, {
@@ -386,7 +386,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_maysp")
 }],
-"loop": true,
+"loop": false,
 "name": &"Block",
 "speed": 8.0
 }, {
@@ -403,7 +403,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6eb1q")
 }],
-"loop": true,
+"loop": false,
 "name": &"Damage",
 "speed": 5.0
 }, {
@@ -444,7 +444,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qpoj2")
 }],
-"loop": true,
+"loop": false,
 "name": &"Death",
 "speed": 10.0
 }, {
@@ -461,7 +461,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8viyr")
 }],
-"loop": true,
+"loop": false,
 "name": &"Fall",
 "speed": 10.0
 }, {
@@ -516,7 +516,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lfmf2")
 }],
-"loop": true,
+"loop": false,
 "name": &"Run",
 "speed": 10.0
 }, {
@@ -545,7 +545,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pqfba")
 }],
-"loop": true,
+"loop": false,
 "name": &"Slide",
 "speed": 5.0
 }, {
@@ -574,7 +574,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ac8n6")
 }],
-"loop": true,
+"loop": false,
 "name": &"Walk",
 "speed": 10.0
 }, {
@@ -597,14 +597,13 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hshwv")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 10.0
 }]
 
 [sub_resource type="Animation" id="Animation_gwnis"]
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -855,7 +854,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_p5o4e"]
 length = 1.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -963,8 +961,7 @@ shape = SubResource("CapsuleShape2D_hvfyp")
 position = Vector2(0, -11.5)
 scale = Vector2(1, 0.946429)
 sprite_frames = SubResource("SpriteFrames_l8h54")
-animation = &"Attack"
-frame_progress = 0.933091
+animation = &"Slide"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.4, 2.4)

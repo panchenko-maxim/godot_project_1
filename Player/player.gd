@@ -97,15 +97,14 @@ func block_state():
 		
 func slide_state():
 	animPlayer.play("Slide")
-	#await animPlayer.animation_finished
-	#state = MOVE
+	await animPlayer.animation_finished
+	state = MOVE
 	
 func attack_state():
 	velocity.x = 0
 	animPlayer.play("Attack")
-	
-	#await animPlayer.animation_finished
-	#state = MOVE
+	await animPlayer.animation_finished
+	state = MOVE
 	
 
 	
