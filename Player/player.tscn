@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://bg7pj8re6kfju"]
+[gd_scene load_steps=97 format=3 uid="uid://bg7pj8re6kfju"]
 
 [ext_resource type="Script" uid="uid://b2ydtbgmqitk" path="res://Player/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://0li2g67t1mb1" path="res://oak_woods_v1.0/character/char_blue.png" id="1_l8h54"]
@@ -669,10 +669,23 @@ tracks/1/keys = {
 "update": 1,
 "values": ["Attack2"]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"combo1"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_fhl08"]
 length = 0.8
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -948,6 +961,21 @@ tracks/1/keys = {
 "values": ["idle"]
 }
 
+[sub_resource type="Animation" id="Animation_lfmf2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Attack2"]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lfmf2"]
 _data = {
 &"Attack": SubResource("Animation_gwnis"),
@@ -958,6 +986,7 @@ _data = {
 &"Death": SubResource("Animation_00tjw"),
 &"Fall": SubResource("Animation_x3vf3"),
 &"Jump": SubResource("Animation_apopc"),
+&"RESET": SubResource("Animation_lfmf2"),
 &"Run": SubResource("Animation_5htga"),
 &"Slide": SubResource("Animation_p5o4e"),
 &"Walk": SubResource("Animation_gu6f8"),
@@ -974,8 +1003,7 @@ shape = SubResource("CapsuleShape2D_hvfyp")
 position = Vector2(0, -11.5)
 scale = Vector2(1, 0.946429)
 sprite_frames = SubResource("SpriteFrames_l8h54")
-animation = &"Attack"
-frame = 4
+animation = &"Attack2"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.4, 2.4)

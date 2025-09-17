@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 		ATTACK2:
 			attack2_state()
 		ATTACK3:
-			pass
+			attack3_state()
 		BLOCK:
 			block_state()
 		SLIDE:
@@ -110,7 +110,14 @@ func attack_state():
 	state = MOVE
 	
 func attack2_state():
+	if Input.is_action_just_pressed("attack") and combo == true:
+		state = ATTACK3
 	animPlayer.play("Attack2")
+	await  animPlayer.animation_finished
+	state = MOVE
+
+func attack3_state():
+	animPlayer.play("Attack3")
 	await  animPlayer.animation_finished
 	state = MOVE
 
