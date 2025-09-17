@@ -20,6 +20,7 @@ var health = 100
 var gold = 0
 var state = MOVE
 var run_speed = 1
+var combo = false
 
 func _physics_process(delta: float) -> void:
 	match state:
@@ -28,7 +29,7 @@ func _physics_process(delta: float) -> void:
 		ATTACK:
 			attack_state()
 		ATTACK2:
-			pass
+			attack2_state()
 		ATTACK3:
 			pass
 		BLOCK:
@@ -101,10 +102,21 @@ func slide_state():
 	state = MOVE
 	
 func attack_state():
+	if Input.is_action_just_pressed("attack") and combo == true:
+		state = ATTACK2
 	velocity.x = 0
 	animPlayer.play("Attack")
 	await animPlayer.animation_finished
 	state = MOVE
 	
+func attack2_state():
+	animPlayer.play("Attack2")
+	await  animPlayer.animation_finished
+	state = MOVE
+
+func combo1():
+	combo = true
+	await animPlayer.animation_finished
+	combo = false
 
 	
